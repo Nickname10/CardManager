@@ -1,0 +1,51 @@
+﻿<Page x:Class="Client.Pages.LoadCardPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:Client.Pages"
+      mc:Ignorable="d"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="LoadCardPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Upload card" Grid.Column="1" Grid.ColumnSpan="4" TextAlignment="Center"
+                   VerticalAlignment="Center" FontSize="20" />
+        <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="6"
+                    HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Image path: " Margin="0 0 10 0" />
+            <TextBox Text="{Binding SelectedImagePath}" IsReadOnly="True" Width="400" Margin="0 0 10 0" />
+            <Button Content="Select" Command="{Binding LoadCardCommand}" Width="75" />
+
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="6"
+                    HorizontalAlignment="Left" VerticalAlignment="Bottom">
+            <TextBlock Text="Title: " Margin="30 0 10 0" />
+            <TextBox Text="{Binding CardTitle}" Width="200" />
+        </StackPanel>
+        <Image Source="{Binding SelectedImageBitmap}" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="3" />
+        <Button Content="Send" Command="{Binding SendToServerCommand}" Grid.Column="5" Grid.Row="4" Height="20"
+                Width="70" />
+        <Button Content="Back " Command="{Binding ShowCardsPageCommand}" Grid.Column="0" Grid.Row="4" Height="20"
+                Width="70" />
+
+
+    </Grid>
+
+</Page>

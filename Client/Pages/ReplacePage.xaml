@@ -1,0 +1,59 @@
+﻿<Page x:Class="Client.Pages.ReplacePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:Client.Pages"
+      mc:Ignorable="d"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ReplacePage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" Grid.Row="0" Grid.RowSpan="7" Grid.ColumnSpan="3">
+            <TextBlock Text="Current card" TextAlignment="Center" FontSize="15" Margin="10" />
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Title: " Margin="15 0 0 0" FontSize="13" />
+                <TextBlock Text="{Binding CurrentCard.Title}" FontSize="13" />
+            </StackPanel>
+            <TextBlock Text="Image:" TextAlignment="Center" FontSize="13" />
+            <Image Source="{Binding CurrentCard.Image}" />
+        </StackPanel>
+        <StackPanel Grid.Column="4" Grid.Row="0" Grid.RowSpan="8" Grid.ColumnSpan="4">
+            <TextBlock Text="New card" TextAlignment="Center" FontSize="15" Margin="10" />
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Title: " Margin="36 15 15 15" FontSize="13" />
+                <TextBox Text="{Binding NewCard.Title}" FontSize="13" Width="200" Height="20" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Image path: " Margin="0 0 10 0" FontSize="13"/>
+                <TextBox Text="{Binding SelectedImagePath}" IsReadOnly="True" Width="200" Margin="0 0 10 0" />
+                <Button Content="Select" Command="{Binding SelectCommand}" Width="75" />
+            </StackPanel>
+            <TextBlock Text="Image:" TextAlignment="Center" FontSize="13" />
+            <Image Source="{Binding NewCard.Image}" Height="280" Width="360" />
+
+        </StackPanel>
+        <Button Content="Back" Command="{Binding ShowCardsPageCommand}" Grid.Column="3" Grid.Row="7" Height="30" Width="80"/>
+        <Button Content="Replace" Command="{Binding ReplaceCommand}" Grid.Column="4" Grid.Row="7" Height="30" Width="80"/>
+    </Grid>
+</Page>
